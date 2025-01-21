@@ -1,0 +1,149 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x000000010db44489, pid=8638, tid=28427
+#
+# JRE version: OpenJDK Runtime Environment (20.0.1+9) (build 20.0.1+9-29)
+# Java VM: OpenJDK 64-Bit Server VM (20.0.1+9-29, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, bsd-amd64)
+# Problematic frame:
+# V  [libjvm.dylib+0x9a2489]  AdapterHandlerLibrary::get_adapter(methodHandle const&)+0x689
+#
+# No core dump will be written. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   https://bugreport.java.com/bugreport/crash.jsp
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -XX:+ShowCodeDetailsInExceptionMessages -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:51540 -javaagent:/Users/younesshuckleberry/eclipse/jee-2024-09/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.osgi/442/0/.cp/lib/javaagent-shaded.jar -Dfile.encoding=UTF-8 -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8 com.sg.kata.bankaccount.BankAccountApplication
+
+Host: "MacBookPro14,2" x86_64 3100 MHz, 4 cores, 8G, Darwin 22.6.0, macOS 13.6.7 (22G720)
+Time: Mon Jan 20 16:52:59 2025 CET elapsed time: 70.896357 seconds (0d 0h 1m 10s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007fd86be1a200):  JavaThread "tomcat-shutdown" [_thread_in_vm, id=28427, stack(0x0000700009102000,0x0000700009202000)]
+
+Stack: [0x0000700009102000,0x0000700009202000],  sp=0x0000700009201090,  free space=1020k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.dylib+0x9a2489]  AdapterHandlerLibrary::get_adapter(methodHandle const&)+0x689
+V  [libjvm.dylib+0x8a9ad6]  Method::link_method(methodHandle const&, JavaThread*)+0xb6
+V  [libjvm.dylib+0x5671a4]  InstanceKlass::link_methods(JavaThread*)+0x44
+V  [libjvm.dylib+0x566ef9]  InstanceKlass::link_class_impl(JavaThread*)+0x3c9
+V  [libjvm.dylib+0x5660aa]  InstanceKlass::initialize_impl(JavaThread*)+0x4a
+V  [libjvm.dylib+0x58464f]  InterpreterRuntime::_new(JavaThread*, ConstantPool*, int)+0xcf
+j  java.net.Socket.setImpl()V+27 java.base@20.0.1
+j  java.net.Socket.<init>()V+46 java.base@20.0.1
+j  org.apache.tomcat.util.net.AbstractEndpoint.unlockAccept()V+107
+j  org.apache.tomcat.util.net.NioEndpoint.unlockAccept()V+8
+j  org.apache.tomcat.util.net.AbstractEndpoint.pause()V+24
+j  org.apache.coyote.AbstractProtocol.pause()V+45
+j  org.apache.catalina.connector.Connector.pause()V+11
+j  org.springframework.boot.web.embedded.tomcat.GracefulShutdown.close(Lorg/apache/catalina/connector/Connector;)V+1
+j  org.springframework.boot.web.embedded.tomcat.GracefulShutdown$$Lambda$1732+0x0000000801a65260.accept(Ljava/lang/Object;)V+8
+J 4054 c1 java.util.ArrayList.forEach(Ljava/util/function/Consumer;)V java.base@20.0.1 (74 bytes) @ 0x0000000116aa83bc [0x0000000116aa82e0+0x00000000000000dc]
+j  org.springframework.boot.web.embedded.tomcat.GracefulShutdown.doShutdown(Lorg/springframework/boot/web/server/GracefulShutdownCallback;Ljava/util/concurrent/CountDownLatch;)V+12
+j  org.springframework.boot.web.embedded.tomcat.GracefulShutdown.lambda$shutDownGracefully$0(Lorg/springframework/boot/web/server/GracefulShutdownCallback;Ljava/util/concurrent/CountDownLatch;)V+3
+j  org.springframework.boot.web.embedded.tomcat.GracefulShutdown$$Lambda$1731+0x0000000801a65048.run()V+12
+j  java.lang.Thread.runWith(Ljava/lang/Object;Ljava/lang/Runnable;)V+5 java.base@20.0.1
+j  java.lang.Thread.run()V+19 java.base@20.0.1
+v  ~StubRoutines::call_stub 0x000000011d831cc6
+V  [libjvm.dylib+0x590241]  JavaCalls::call_helper(JavaValue*, methodHandle const&, JavaCallArguments*, JavaThread*)+0x2a1
+V  [libjvm.dylib+0x58f288]  JavaCalls::call_virtual(JavaValue*, Klass*, Symbol*, Symbol*, JavaCallArguments*, JavaThread*)+0x178
+V  [libjvm.dylib+0x58f343]  JavaCalls::call_virtual(JavaValue*, Handle, Klass*, Symbol*, Symbol*, JavaThread*)+0x63
+V  [libjvm.dylib+0x649478]  thread_entry(JavaThread*, JavaThread*)+0x98
+V  [libjvm.dylib+0x5a272c]  JavaThread::thread_main_inner()+0x9c
+V  [libjvm.dylib+0xabcc75]  Thread::call_run()+0xa5
+V  [libjvm.dylib+0x906e37]  thread_native_entry(Thread*)+0x147
+C  [libsystem_pthread.dylib+0x61d3]  _pthread_start+0x7d
+C  [libsystem_pthread.dylib+0x1bd3]  thread_start+0xf
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  java.net.Socket.setImpl()V+27 java.base@20.0.1
+j  java.net.Socket.<init>()V+46 java.base@20.0.1
+j  org.apache.tomcat.util.net.AbstractEndpoint.unlockAccept()V+107
+j  org.apache.tomcat.util.net.NioEndpoint.unlockAccept()V+8
+j  org.apache.tomcat.util.net.AbstractEndpoint.pause()V+24
+j  org.apache.coyote.AbstractProtocol.pause()V+45
+j  org.apache.catalina.connector.Connector.pause()V+11
+j  org.springframework.boot.web.embedded.tomcat.GracefulShutdown.close(Lorg/apache/catalina/connector/Connector;)V+1
+j  org.springframework.boot.web.embedded.tomcat.GracefulShutdown$$Lambda$1732+0x0000000801a65260.accept(Ljava/lang/Object;)V+8
+J 4054 c1 java.util.ArrayList.forEach(Ljava/util/function/Consumer;)V java.base@20.0.1 (74 bytes) @ 0x0000000116aa83bc [0x0000000116aa82e0+0x00000000000000dc]
+j  org.springframework.boot.web.embedded.tomcat.GracefulShutdown.doShutdown(Lorg/springframework/boot/web/server/GracefulShutdownCallback;Ljava/util/concurrent/CountDownLatch;)V+12
+j  org.springframework.boot.web.embedded.tomcat.GracefulShutdown.lambda$shutDownGracefully$0(Lorg/springframework/boot/web/server/GracefulShutdownCallback;Ljava/util/concurrent/CountDownLatch;)V+3
+j  org.springframework.boot.web.embedded.tomcat.GracefulShutdown$$Lambda$1731+0x0000000801a65048.run()V+12
+j  java.lang.Thread.runWith(Ljava/lang/Object;Ljava/lang/Runnable;)V+5 java.base@20.0.1
+j  java.lang.Thread.run()V+19 java.base@20.0.1
+v  ~StubRoutines::call_stub 0x000000011d831cc6
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 0 (unknown), si_addr: 0x0000000000000000
+
+Registers:
+RAX=0x000000010df53d80, RBX=0x0000000000000000, RCX=0x00000000000bbbbe, RDX=0x65732f6265772f74
+RSP=0x0000700009201090, RBP=0x00007000092011d0, RSI=0x0000000000000001, RDI=0x0000000000000000
+R8 =0x00000000ffffffff, R9 =0x00000000000bbbbe, R10=0x0000000000000020, R11=0x000000009dcc1ffb
+R12=0x0000000000000004, R13=0x0000000000000005, R14=0x0000000000000000, R15=0x0000000000000005
+RIP=0x000000010db44489, EFLAGS=0x0000000000010206, ERR=0x0000000000000000
+  TRAPNO=0x000000000000000d
+
+
+Register to memory mapping:
+
+RAX=0x000000010df53d80: _adapter_handler_table+0 in /Users/younesshuckleberry/Library/Java/JavaVirtualMachines/openjdk-20.0.1/Contents/Home/lib/server/libjvm.dylib at 0x000000010d1a2000
+RBX=0x0 is NULL
+RCX=0x00000000000bbbbe is an unknown value
+RDX=0x65732f6265772f74 is an unknown value
+RSP=0x0000700009201090 is pointing into the stack for thread: 0x00007fd86be1a200
+RBP=0x00007000092011d0 is pointing into the stack for thread: 0x00007fd86be1a200
+RSI=0x0000000000000001 is an unknown value
+RDI=0x0 is NULL
+R8 =0x00000000ffffffff is an unknown value
+R9 =0x00000000000bbbbe is an unknown value
+R10=0x0000000000000020 is an unknown value
+R11=0x000000009dcc1ffb is an unknown value
+R12=0x0000000000000004 is an unknown value
+R13=0x0000000000000005 is an unknown value
+R14=0x0 is NULL
+R15=0x0000000000000005 is an unknown value
+
+
+Top of Stack: (sp=0x0000700009201090)
+0x0000700009201090:   0000600001e10a48 00007fd869870990
+0x00007000092010a0:   000070000000000a 0000000000017b94
+0x00007000092010b0:   0000000c0000000c 0000000b0000000d
+0x00007000092010c0:   0000000e0000000e 0000700009201108
+0x00007000092010d0:   00007000092010f0 000000010d320498
+0x00007000092010e0:   00007fd86970a690 0000700009201208
+0x00007000092010f0:   00007000092010b0 0000000100000005
+0x0000700009201100:   0000000000000000 0000000000000005
+0x0000700009201110:   0000000000000001 0000700009201170
+0x0000700009201120:   0000600002e17030 0000600000f6ac00
+0x0000700009201130:   00000000000003d8 0000000000000000
+0x0000700009201140:   0000000000000005 00007000092010b0
+0x0000700009201150:   0000000000000000 00007fd86970a690
+0x0000700009201160:   00007fd86970a6a0 00007fd86970aa78
+0x0000700009201170:   00000000000bbbbe 00007fd800000000
+0x0000700009201180:   00000000ffffffff 0000010700000000
+0x0000700009201190:   00007fd86a8468c0 0000000000000000
+0x00007000092011a0:   d7faabe1f7110049 000000012d1868e0
+0x00007000092011b0:   00007fd86be1a200 0000700009201218
+0x00007000092011c0:   0000700009201218 00007fd86be1a200
+0x00007000092011d0:   0000700009201200 000000010da4bad6
+0x00007000092011e0:   000000000000000e 00007fd86be1a200
+0x00007000092011f0:   00000008019c4fc8 000000012d1868e0
+0x0000700009201200:   0000700009201250 000000010d7091a4
+0x0000700009201210:   00007fd86be1a200 000000012d1868e0
+0x0000700009201220:   00007fd86be1a200 00006000026a8e00
+0x0000700009201230:   0000000000000001 0000000000000001
+0x0000700009201240:   00000008019c4fc8 00007fd86be1a200
+0x0000700009201250:   0000700009201310 000000010d708ef9
+0x0000700009201260:   0000700009201290 0000000000000000
+0x0000700009201270:   0000001080cbb5bd 000000010df3e801
+0x0000700009201280:   000060000346d000 000060000346d040 
+
+Instructions: (pc=0x000000010db44489)
+0x000000010db44389:   c1 33 4c bd a0 89 c8 c1 e0 08 c1 f9 05 31 c1 33
+0x000000010db44399:   4c bd a4 89 c8 c1 e0 08 c1 f9 05 31 c1 33 4c bd
+0x000000010db443a9:   a8 89 c8 c1 e0 08 c1 f9 05 31 c1 33 4c bd ac 48
+0x000000010db443b9:   83 c7 04 48 39 fa 75 bf 48 85 f6 74 1f 48 8d 54
+0x000000010db443c9:   bd a0 31 ff 0f 1f 00 89 c8 c1 e0 08 c1 f9 
