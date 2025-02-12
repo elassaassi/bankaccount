@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  bank-account-app:
+    image: bank-account-app:latest  # Utilise l'image construite
+    build:
+      context: .  # Contexte de build (répertoire actuel)
+    ports:
+      - "8080:8080"  # Redirige le port 8080 de ton hôte vers le conteneur
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev  # Exemple de variable d'environnement
+    volumes:
+      - ./target:/app/target  # Monte le répertoire target pour avoir le JAR actuel
+    networks:
+      - bank-network
+
+networks:
+  bank-network:
+    driver: bridge
